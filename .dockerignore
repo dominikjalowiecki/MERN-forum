@@ -1,0 +1,9 @@
+node_modules
+client
+mongo_volume
+init-mongo.js
+.env
+.gitignore
+.dockerignore
+Dockerfile.prod
+docker-compose.yaml

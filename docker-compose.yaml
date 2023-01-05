@@ -1,0 +1,61 @@
+version: "3.9"
+services:
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.prod
+    container_name: 'mern-forum_frontend_container'
+    ports:
+      - '${MFF_HOST_PORT:-80}:80'
+    depends_on:
+      - backend
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile.prod
+    container_name: 'mern-forum_backend_container'
+    environment:
+      - COOKIE_SECRET=${COOKIE_SECRET}
+      - DB_URI=mongodb://user:password@database:27017/mern-forum-db
+      - FRONTEND_BASE_URL=http://localhost
+    volumes:
+      - ./logs:/app/logs
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "--fail",
+          "http://localhost:5000",
+          "||",
+          "exit",
+          "1"
+        ]
+      interval: 2m
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 3s
+        max_attempts: 5
+        window: 60s
+    ports:
+      - '${MFB_HOST_PORT:-5000}:5000'
+    depends_on:
+      - database
+  database:
+    image: "mongo:6.0.1"
+    container_name: 'mern-forum_mongodb_container'
+    environment:
+      - MONGO_INITDB_DATABASE=mern-forum-db
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongo_volume:/data/db
+    # ports:
+    #   - '27017-27019:27017-27019'
+
+    # docker compose up --build --detach
