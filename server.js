@@ -18,6 +18,8 @@ const logger = require('./utils/logger');
 
 const app = express();
 
+app.set('trust proxy', true);
+
 app.use(cors({
 	origin: process.env.FRONTEND_BASE_URL,
 	credentials: true
