@@ -6,6 +6,7 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 ENV PUBLIC_URL http://localhost
 ENV REACT_APP_API_URI http://localhost:5000
+ENV REACT_APP_BASENAME /
 
 COPY package.json ./
 COPY package-lock.json ./

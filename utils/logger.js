@@ -10,7 +10,7 @@ const levels = {
 };
 
 const level = () => {
-    return (env === 'development') ? 'debug' : 'warn';
+    return (env === 'development') ? 'debug' : 'http';
 };
 
 const colors = {

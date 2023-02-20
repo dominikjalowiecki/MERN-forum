@@ -68,7 +68,7 @@ const App = () => {
 
 	return (
 			<div className="app">
-				<Router>
+				<Router basename={(process.env.NODE_ENV === 'production') ? process.env.REACT_APP_BASENAME : '/'}>
 					<Provider store={store}>
 						<Navigation />
 						<Container>
