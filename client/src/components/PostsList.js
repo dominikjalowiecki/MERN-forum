@@ -148,7 +148,7 @@ class PostsList extends Component {
 					</Formik>
 				</Modal>
 				<Jumbotron>
-					<h1 className="display-3">Welcome to MERN Forum!</h1>
+					<h1 className="display-4">Welcome to MERN Forum!</h1>
 					<p className="lead">
 						Here is the place where you can discuss a MERN stack
 						related concepts with other people.
