@@ -6,12 +6,12 @@ Full-stack MERN web application. [Click here to preview.][preview]
 
 [preview]: https://djalowiecki.toadres.pl/mern-forum
 
-### Table of content
+### Table of contents
 
 - [Technologies](#technologies)
 - [Features](#features)
 - [Setup](#setup)
-- [Backend API Endpoints](#backend-api-endpoints)
+- [Backend API Endpoints](#rest-api-endpoints)
 
 ---
 
