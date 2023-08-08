@@ -1,8 +1,8 @@
-<!--[![Preview project](https://img.shields.io/static/v1?label=Node.js&message=Preview&color=important&style=flat&logo=Node.js)][preview]-->
+[![Preview project](https://img.shields.io/static/v1?label=Node.js&message=Preview&color=important&style=flat&logo=Node.js)][preview]
 
 # MERN-forum
 
-Full-stack MERN web application. <!--[Click here to preview.][preview]-->
+Full-stack MERN web application. [Click here to preview.][preview]
 
 [preview]: https://djalowiecki.toadres.pl/mern-forum
 
